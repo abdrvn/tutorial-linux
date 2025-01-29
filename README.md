@@ -41,3 +41,10 @@ awk -F: '$3 >= 1000 && $3 < 60000 {print $1}' /etc/passwd
 awk -F: '$3 >= 1000 && $3 < 60000 {print "User: "$1", UID: "$3}' /etc/passwd
 ```
 > Menampilkan daftar dengan nama dan UID untuk memudahkan pengecekan.
+
+### Beralih User dengan su (Switch User)
+```
+su - nama_user
+```
+> - **-** memastikan bahwa lingkungan user tujuan dimuat sepenuhnya.
+> - Jika diminta password, masukkan password user yang akan dituju.
