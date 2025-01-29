@@ -33,5 +33,5 @@ id nama_user
 ```
 awk -F: '$3 >= 1000 && $3 < 60000 {print $1}' /etc/passwd
 ```
-> User biasa memiliki **UID ≥ 1000** (user biasa, bukan sistem).
-> User root memiliki **(UID 0)** dan tidak termasuk dalam daftar.
+> - User biasa memiliki **UID ≥ 1000** (user biasa, bukan sistem).
+> - User root memiliki **(UID 0)** dan tidak termasuk dalam daftar.
