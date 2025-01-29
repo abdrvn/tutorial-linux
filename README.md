@@ -1,7 +1,7 @@
 ## Perintah Ketika Pertama Kali Install Linux (Ubuntu 22.04) 
-### update dan upgrade repositori
+### Update dan Upgrade Repositori
 ```
-'apt update -y && apt upgrade -y'
+sudo apt update -y && apt upgrade -y
 ```
 ### Buat User Baru
 ```bash
