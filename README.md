@@ -46,5 +46,5 @@ awk -F: '$3 >= 1000 && $3 < 60000 {print "User: "$1", UID: "$3}' /etc/passwd
 ```
 su - nama_user
 ```
-> - **-** memastikan bahwa lingkungan user tujuan dimuat sepenuhnya.
+> - `-` memastikan bahwa lingkungan user tujuan dimuat sepenuhnya.
 > - Jika diminta password, masukkan password user yang akan dituju.
