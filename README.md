@@ -29,9 +29,15 @@ id nama_user
 ```
 > Jika user sudah masuk grup sudo, outputnya akan mencantumkan **groups=1000(nama_user),27(sudo)**
 
-### Cek Daftar User Yang Ada di Sistem
+### Cek Daftar User Tanpa UID
 ```
 awk -F: '$3 >= 1000 && $3 < 60000 {print $1}' /etc/passwd
 ```
 > - User biasa memiliki **UID ≥ 1000** (user biasa, bukan sistem).
-> - User root memiliki **(UID 0)** dan tidak termasuk dalam daftar.
+> - User root memiliki **(UID = 0)** dan tidak termasuk dalam daftar.
+
+### Cek Daftar User Dengan Nama dan UID
+```
+awk -F: '$3 >= 1000 && $3 < 60000 {print "User: "$1", UID: "$3}' /etc/passwd
+```
+> Menampilkan daftar dengan nama dan UID untuk memudahkan pengecekan.
