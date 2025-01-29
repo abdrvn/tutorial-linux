@@ -1,6 +1,7 @@
 ## Perintah ketika pertama kali install Linux (Ubuntu 22.04) 
 
-```apt update -y && apt upgrade -y```
+```bash
+apt update -y && apt upgrade -y
 
 ## Buat User Baru
 ```bash
