@@ -1,8 +1,8 @@
-## Perintah ketika pertama kali install Linux (Ubuntu 22.04) 
+## perintah ketika pertama kali install Linux (Ubuntu 22.04) 
 
 ```bash
 apt update -y && apt upgrade -y
-
+- test
 ## Buat User Baru
 ```bash
 sudo adduser nama_user ```
