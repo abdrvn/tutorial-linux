@@ -1,8 +1,8 @@
-# Hal yang pertama kali dilakukan ketika telah terinstal Ubuntu 22.04 #
+## Perintah ketika pertama kali install Linux (Ubuntu 22.04) 
 
-apt update -y && apt upgrade -y
+`apt update -y && apt upgrade -y`
 
-# Buat User Baru #
+## Buat User Baru
 ```bash
 sudo adduser nama_user ```
 
