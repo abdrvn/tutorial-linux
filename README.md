@@ -150,8 +150,8 @@ Hapus tanda # dan ubah angka 22 menjadi port yang diinginkan, misalnya 2222:
 ```
 Port 2222
 ```
-> Setelah diganti tekan (Ctrl + X, lalu tekan Y dan Enter)
-🚨 Catatan:
+Setelah diganti tekan (Ctrl + X, lalu tekan Y dan Enter).
+>🚨 Catatan:
 > - Jangan gunakan port yang sudah digunakan layanan lain (cek dengan `sudo netstat -tulnp`).
 > - Hindari port umum seperti `80, 443, 3306, dll.`
 > - Gunakan port di atas `2000` untuk keamanan tambahan. Port di atas 2000 lebih jarang digunakan oleh layanan lain.
