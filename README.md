@@ -75,7 +75,7 @@ sudo ss -tulnp
 ```
 sudo ufw allow 22/tcp
 ```
-> ⚠️ PENTING: Jika kamu menggunakan ssh pastikan SSH sudah diizinkan sebelum mengaktifkan UFW agar tidak terkunci dari remote access!
+> ⚠️ PENTING: Jika kamu menggunakan ssh pastikan port SSH sudah diizinkan sebelum mengaktifkan UFW agar tidak terkunci dari remote access!
 
 - HTTP (port 80)
 ```
@@ -97,5 +97,33 @@ sudo ufw allow 3389/tcp
 sudo ufw enable
 ```
 
-### 
+### Mengizinkan Port Hanya untuk IP Tertentu
+- **Mengizinkan Koneksi Masuk (Inbound)**
+```
+sudo ufw allow in from 127.0.0.1 to any port 53
+```
+> Contoh alamat IP `127.0.0.1`, diizinkan untuk koneksi masuk melalui port `53`
+
+- **Mengizinkan Koneksi Keluar (Outbound)**
+```
+sudo ufw allow out from 127.0.0.1 to any port 53
+```
+> Contoh alamat IP `127.0.0.1`, diizinkan untuk koneksi keluar melalui port `53`
+
+### Menolak Semua Koneksi Lain ke Port Tertentu
+- **Menolak Semua Koneksi Masuk (Inbound)**
+```
+sudo ufw deny in to any port 53
+```
+- **Menolak Semua Koneksi Keluar (Outbound)**
+```
+sudo ufw deny out to any port 53
+```
+- **Menolak Semua Koneksi Masuk dan Keluar dari IP Tertentu**
+```
+sudo ufw deny in from 127.0.0.1 to any port 53
+sudo ufw deny out from 127.0.0.1 to any port 53
+```
+> Contoh ip `127.0.0.1` tidak diizinkan untuk mengakses koneksi masuk dan keluar melalui port `53`
+
 
