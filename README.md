@@ -1,4 +1,4 @@
-## Perintah Ketika Pertama Kali Install Linux (Ubuntu 22.04) 
+## Perintah Ketika Pertama Kali Install VPS (Ubuntu 22.04 LTS) 
 
 ### Update dan Upgrade Repositori
 ```
@@ -126,4 +126,62 @@ sudo ufw deny out from 127.0.0.1 to any port 53
 ```
 > Contoh ip `127.0.0.1` tidak diizinkan untuk mengakses koneksi masuk dan keluar melalui port `53`
 
+### Menghapus Aturan Firewall Dengan List Number
+```
+sudo ufw status numbered
+```
+> Perintah tersebut akan menampilkan list aturan firewall yang telah diterapkan
+```
+sudo ufw delete 1
+```
+> Contoh perintah diatas akan menghapus aturan yang berada di list nomor '1'
+
+## Cara Mengganti Port Default SSH (22)
+Login terlebih dahulu ke VPS dengan username, password dan port yang telah kalian tentukan sebelumnya 
+### Edit Konfigurasi SSH
+```
+sudo nano /etc/ssh/sshd_config
+```
+Cari baris berikut:
+```
+#Port 22
+```
+Hapus tanda # dan ubah angka 22 menjadi port yang diinginkan, misalnya 2222:
+```
+Port 2222
+```
+> Setelah diganti tekan (Ctrl + X, lalu tekan Y dan Enter)
+🚨 Catatan:
+> - Jangan gunakan port yang sudah digunakan layanan lain (cek dengan `sudo netstat -tulnp`).
+> - Hindari port umum seperti `80, 443, 3306, dll.`
+> - Gunakan port di atas `2000` untuk keamanan tambahan. Port di atas 2000 lebih jarang digunakan oleh layanan lain.
+
+### Izinkan Port Baru di Firewall (UFW)
+```
+sudo ufw allow 2222/tcp
+```
+### Cek Port yang Baru di Tambahkan 
+```
+sudo ufw status verbose
+```
+### Restart SSH Service
+```
+sudo systemctl restart ssh
+```
+atau
+```
+sudo service ssh restart
+```
+### Tes Login dengan Port Baru
+Dari komputer lokal, coba login dengan port baru misalnya via terminal:
+```
+ssh -p 2222 root@IP_VPS
+```
+> 🚨Catatan: Jangan tutup koneksi SSH lama sebelum memastikan koneksi dengan port baru berhasil.
+
+### Blokir Port SSH Lama [22] (Opsional)
+```
+sudo ufw deny 22/tcp
+```
+> Jika sudah berhasil login dengan port baru, tutup akses ke port `22`. Atau bisa juga menghapusnya sesuaikan dengan kebutuhan.
 
