@@ -11,8 +11,8 @@ sudo apt install -y wget curl nano software-properties-common
 sudo apt install xfce4 xfce4-goodies -y
 ```
 > Penjelasan:
-> `xfce4` → paket XFCE utama.
-> `xfce4-goodies` → Menambahkan fitur tambahan seperti power manager, terminal, dsb.
+> - `xfce4` → paket XFCE utama.
+> - `xfce4-goodies` → Menambahkan fitur tambahan seperti power manager, terminal, dsb.
 
 ### Install Paket Pendukung Tambahan
 Beberapa paket tambahan diperlukan agar XRDP dan XFCE berjalan optimal:
@@ -20,9 +20,9 @@ Beberapa paket tambahan diperlukan agar XRDP dan XFCE berjalan optimal:
 sudo apt install dbus-x11 xorgxrdp x11-xserver-utils -y
 ```
 > Penjelasan:
-> `dbus-x11` → Diperlukan agar XFCE bisa berjalan dengan XRDP.
-> `xorgxrdp` → Driver Xorg untuk XRDP agar tampilan lebih stabil.
-> `x11-xserver-utils` → Berisi perintah tambahan untuk pengelolaan X server.
+> - `dbus-x11` → Diperlukan agar XFCE bisa berjalan dengan XRDP.
+> - `xorgxrdp` → Driver Xorg untuk XRDP agar tampilan lebih stabil.
+> - `x11-xserver-utils` → Berisi perintah tambahan untuk pengelolaan X server.
 
 ### Install XRDP
 ```
@@ -38,5 +38,10 @@ Cek status XRDP:
 sudo systemctl status xrdp
 ```
 > Jika berjalan dengan baik, output-nya harus menunjukkan **active (running)**.
+
+### Memasukkan user xrdp ke grup ssl-cert
+```
+sudo adduser xrdp ssl-cert
+```
 
 
